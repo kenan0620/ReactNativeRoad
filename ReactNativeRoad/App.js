@@ -39,6 +39,31 @@ const instructions = Platform.select({
 type Props = {};
 
 /**
+为Greeting类定义了一个name属性
+*/ 
+class Greeting extends Component {
+  render() {
+    return (
+      <Text>Hello {this.props.name}!</Text>
+    );
+  }
+}
+
+/**
+为SomeWords类定义了一个age属性
+*/ 
+
+class SomeWords extends Component{
+    render() {
+        return (
+        <Text> 
+        Hello {this.props.age}!
+        </Text>
+        );
+    }
+}
+
+/**
  核心代码区：所有逻辑代码编写的地方
  */
 
@@ -47,9 +72,15 @@ export default class App extends Component<Props> {
     return (
             
       <View style={styles.container}>
-            
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
+                <Greeting name = 'kenan'/>
+                <Greeting name = 'kenan'/>
+                <Greeting name = 'kenan'/>
+                <SomeWords age = '11'/>
+                <SomeWords age = '23'/>
+                <SomeWords age = '44'/>
+
         <Text style={styles.instructions}>{instructions}</Text>
             <Text style = {styles.Welcome}> Hello world!</Text>
             
