@@ -19,6 +19,8 @@ import
     StyleSheet,
     Text,
     View,
+    Image,
+    ScrollView
     
 } from 'react-native';
 
@@ -49,10 +51,8 @@ export default class App extends Component<Props> {
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
-            <View style = {styles.container}>
-            <Text style = {styles.Welcome}>Hello world!</Text>
-            <Text style={styles.instructions}>To get started, edit App.js</Text>
-            </View>
+            <Text style = {styles.Welcome}> Hello world!</Text>
+            
       </View>
     );
   }
@@ -80,3 +80,45 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
 });
+
+class WhyReactNativeIsSoGreat extends Component{
+    render() {
+        return (
+                <View>
+                <Text>
+                如何你喜欢在web上使用React，那你k也肯定n会喜欢React Native。
+                </Text>
+                
+                <Text>
+                基本上就是用原生组件比如'View'和'Text'
+                来代替web组件'div'和'span'。
+                </Text>
+                </View>
+                );
+    }
+}
+
+
+class AwkwardScrollingImageWithText extends Component{
+    render() {
+        return (
+        <ScrollView>
+                <Image
+                source = {{url:'https://i.chzbgr.com/full/7345954048/h7E2C65F9/'}}
+                style = {{width:320, height:180}}
+                />
+                
+                <Text>
+                在iOS上，React Native 的scrollviewz组件封装s的是原生的UIScrollView。
+                在Android上，封装的s则是原生的Scrollview。
+                
+                在iOS上，React Native的image组件封装的是原生的UIImageView。
+                在Android上，封装的则是原生的ImageView。
+                
+                React Native封装了这些基础的原生组件，使你在得到媲美原生应用性能的同时，还能受益于React优雅的架构设计。
+                
+                </Text>
+        </ScrollView>
+        )
+    }
+}
