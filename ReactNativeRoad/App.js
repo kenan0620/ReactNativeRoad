@@ -18,7 +18,7 @@ import
     Platform,
     StyleSheet,
     Text,
-    View
+    View,
     
 } from 'react-native';
 
@@ -43,10 +43,16 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
+            
       <View style={styles.container}>
+            
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
+            <View style = {styles.container}>
+            <Text style = {styles.Welcome}>Hello world!</Text>
+            <Text style={styles.instructions}>To get started, edit App.js</Text>
+            </View>
       </View>
     );
   }
@@ -61,16 +67,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#94C0DE',
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 30,
   },
   instructions: {
     textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    color: '#D93F1F',
+    marginBottom: 15,
   },
 });
