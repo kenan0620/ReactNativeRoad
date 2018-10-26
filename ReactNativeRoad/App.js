@@ -39,6 +39,10 @@ const instructions = Platform.select({
 type Props = {};
 
 /**
+ 核心代码区：所有逻辑代码编写的地方
+ */
+
+/**
 为Greeting类定义了一个name属性
 */ 
 class Greeting extends Component {
@@ -62,55 +66,6 @@ class SomeWords extends Component{
         );
     }
 }
-
-/**
- 核心代码区：所有逻辑代码编写的地方
- */
-
-export default class App extends Component<Props> {
-  render() {
-    return (
-            
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-                <Greeting name = 'kenan'/>
-                <Greeting name = 'kenan'/>
-                <Greeting name = 'kenan'/>
-                <SomeWords age = '11'/>
-                <SomeWords age = '23'/>
-                <SomeWords age = '44'/>
-
-        <Text style={styles.instructions}>{instructions}</Text>
-            <Text style = {styles.Welcome}> Hello world!</Text>
-            
-      </View>
-    );
-  }
-}
-
-/**
- 组件样式区：render() 方法中用到的组件的样式，可以集中在这里编写
- */
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#94C0DE',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 30,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#D93F1F',
-    marginBottom: 15,
-  },
-});
 
 class WhyReactNativeIsSoGreat extends Component{
     render() {
@@ -153,3 +108,83 @@ class AwkwardScrollingImageWithText extends Component{
         )
     }
 }
+
+
+class Bulingbuling extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {showText: true};
+
+        setInterval(() => {
+            this.setState(previousState => {
+                return {
+                    showText:!previousState.showText
+                };
+            })
+        }, 1000)
+    }
+
+    render() {
+        let display = this.state.showText ? this.props.text : '';
+        return (
+        <Text>
+        {
+            display
+        }
+        </Text>
+        );
+    }
+}
+
+export default class App extends Component<Props> {
+  render() {
+
+    let pictureUrl = {
+        url:'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
+    };
+
+    return (
+            
+      <View style={styles.container}>
+        <Text style={styles.welcome}>Welcome to React Native!</Text>
+        <Text style={styles.instructions}>To get started, edit App.js</Text>
+        <Greeting name = 'kenan'/>
+        <Greeting name = 'kenan'/>
+        <Bulingbuling text = 'kenan'/>
+        <Bulingbuling text = '11'/>
+        <Bulingbuling text = '23'/>
+        <SomeWords age = '44'/>
+        <Image source = {pictureUrl} 
+                style = {{width: 193, height:110}}
+        />
+        <Text style={styles.instructions}>{instructions}</Text>
+            <Text style = {styles.Welcome}> Hello world!</Text>
+            
+      </View>
+    );
+  }
+}
+
+/**
+ 组件样式区：render() 方法中用到的组件的样式，可以集中在这里编写
+ */
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#94C0DE',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 30,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#D93F1F',
+    marginBottom: 15,
+  },
+});
+
